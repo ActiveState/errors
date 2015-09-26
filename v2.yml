@@ -68,6 +68,11 @@
   http_code: 404
   message: "%s"
 
+10011:
+  name: DatabaseError
+  http_code: 500
+  message: "Database error"
+
 20001:
   name: UserInvalid
   http_code: 400
@@ -214,9 +219,14 @@
   message: "Cannot update space for service instance."
 
 60015:
-  name: ServiceInstanceOperationInProgress
+  name: ServiceInstanceTagsTooLong
   http_code: 400
-  message: "Another operation for this service instance is in progress."
+  message: "Combined length of tags must be 255 characters or less."
+
+60016:
+  name: AsyncServiceInstanceOperationInProgress
+  http_code: 409
+  message: "An operation for service instance %s is in progress."
 
 70001:
   name: RuntimeInvalid
@@ -358,10 +368,20 @@
   http_code: 400
   message: "The domain name is taken: %s"
 
+130004:
+  name: PathInvalid
+  http_code: 400
+  message: "The path is invalid: %s"
+
+130005:
+  name: TotalPrivateDomainsExceeded
+  http_code: 400
+  message: "The number of private domains exceeds the quota for organization: %s"
+
 140001:
   name: LegacyApiWithoutDefaultSpace
   http_code: 400
-  message: "A legacy api call requring a default app space was called, but no default app space is set for the user."
+  message: "A legacy api call requiring a default app space was called, but no default app space is set for the user."
 
 150001:
   name: AppPackageInvalid
@@ -443,6 +463,26 @@
   http_code: 400
   message: "Found no compatible cell"
 
+170010:
+  name: StagerUnavailable
+  http_code: 503
+  message: "Stager is unavailable: %s"
+
+170011:
+  name: StagerError
+  http_code: 500
+  message: "Stager error: %s"
+
+170015:
+  name: RunnerUnavailable
+  http_code: 503
+  message: "Runner is unavailable: %s"
+
+170016:
+  name: RunnerError
+  http_code: 500
+  message: "Runner error: %s"
+
 180001:
   name: SnapshotNotFound
   http_code: 404
@@ -473,6 +513,16 @@
   http_code: 400
   message: "Stats error: %s"
 
+200002:
+  name: StatsUnavailable
+  http_code: 503
+  message: "Stats unavailable: %s"
+
+200003:
+  name: AppStoppedStatsError
+  http_code: 400
+  message: "Could not fetch stats for stopped app: %s"
+
 210001:
   name: RouteInvalid
   http_code: 400
@@ -487,6 +537,11 @@
   name: RouteHostTaken
   http_code: 400
   message: "The host is taken: %s"
+
+210004:
+  name: RoutePathTaken
+  http_code: 400
+  message: "The path is taken: %s"
 
 220001:
   name: InstancesError
@@ -638,6 +693,21 @@
   http_code: 524
   message: "Deletion of space %s timed out before all resources within could be deleted"
 
+290008:
+  name: SpaceDeletionFailed
+  http_code: 502
+  message: "Deletion of space %s failed because one or more resources within could not be deleted.\n\n%s"
+
+290009:
+  name: OrganizationDeleteTimeout
+  http_code: 524
+  message: "Delete of organization %s timed out before all resources within could be deleted"
+
+290010:
+  name: OrganizationDeletionFailed
+  http_code: 502
+  message: "Deletion of organization %s failed because one or more resources within could not be deleted.\n\n%s"
+
 300001:
   name: SecurityGroupInvalid
   http_code: 400
@@ -752,3 +822,24 @@
   name: UnableToDelete
   http_code: 400
   message: "Unable to perform delete action: %s"
+
+360001:
+  name: ServiceKeyNameTaken
+  http_code: 400
+  message: "The service key name is taken: %s"
+
+360002:
+  name: ServiceKeyInvalid
+  http_code: 400
+  message: "The service key is invalid: %s"
+
+360003:
+  name: ServiceKeyNotFound
+  http_code: 404
+  message: "The service key could not be found: %s"
+
+360004:
+  name: ServiceKeyNotSupported
+  http_code: 400
+  message: "%s"
+
