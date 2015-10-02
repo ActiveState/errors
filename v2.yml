@@ -88,6 +88,17 @@
   http_code: 404
   message: "The user could not be found: %s"
 
+20004:
+  name: UaaUnavailable
+  http_code: 503
+  message: "The UAA service is currently unavailable"
+
+20005:
+  name: UaaEndpointDisabled
+  http_code: 501
+  message: "The UAA endpoint needed is disabled"
+
+
 30001:
   name: OrganizationInvalid
   http_code: 400
@@ -228,6 +239,16 @@
   http_code: 409
   message: "An operation for service instance %s is in progress."
 
+60017:
+  name: ServiceInstanceRouteBindingSpaceMismatch
+  http_code: 400
+  message: "The service instance and the route are in different spaces."
+
+60018:
+  name: ServiceInstanceSpaceNotAuthorized
+  http_code: 403
+  message: A service instance for the selected plan cannot be created in this space.
+
 70001:
   name: RuntimeInvalid
   http_code: 400
@@ -318,6 +339,11 @@
   http_code: 400
   message: "You have exceeded the instance memory limit for your organization's quota."
 
+100008:
+  name: QuotaInstanceLimitExceeded
+  http_code: 400
+  message: "You have exceeded the instance limit for your organization's quota."
+
 110001:
   name: ServicePlanInvalid
   http_code: 400
@@ -378,6 +404,16 @@
   http_code: 400
   message: "The number of private domains exceeds the quota for organization: %s"
 
+130006:
+  name: ServiceDoesNotSupportRoutes
+  http_code: 400
+  message: This service does not support route binding.
+
+130007:
+  name: RouteAlreadyBoundToServiceInstance
+  http_code: 400
+  message: A route may only be bound to a single service instance
+
 140001:
   name: LegacyApiWithoutDefaultSpace
   http_code: 400
@@ -417,6 +453,16 @@
   name: AppBitsCopyInvalid
   http_code: 400
   message: "The app copy is invalid: %s"
+
+160003:
+  name: AppResourcesFileModeInvalid
+  http_code: 400
+  message: "The resource file mode is invalid: %s"
+
+160004:
+  name: AppResourcesFilePathInvalid
+  http_code: 400
+  message: "The resource file path is invalid: %s"
 
 170001:
   name: StagingError
@@ -658,6 +704,12 @@
   http_code: 400
   message: "This service plan requires client support for asynchronous service operations."
 
+270015:
+  name: ServiceDashboardClientMissingUrl
+  http_code: 502
+  message: "Service broker returned dashboard client configuration without a dashboard URL"
+
+
 290001:
   name: BuildpackNameTaken
   http_code: 400
@@ -767,6 +819,11 @@
   name: SpaceQuotaDefinitionNotFound
   http_code: 404
   message: "Space Quota Definition could not be found: %s"
+
+310008:
+  name: SpaceQuotaInstanceLimitExceeded
+  http_code: 400
+  message: "You have exceeded the instance limit for your space's quota."
 
 320001:
   name: DiegoDisabled
